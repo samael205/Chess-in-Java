@@ -2,7 +2,7 @@ import java.awt.geom.Point2D;
 
 //Haven't decided fully on permissions yet - things are public right now that probably won't be later.
 
-public abstract class GamePiece {
+public abstract class GamePieceEthan {
 
     private Point2D location;
     // each piece keeps track of it's own colour, so "colour" shouldn't be static

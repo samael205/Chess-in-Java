@@ -1,8 +1,7 @@
 import java.awt.geom.Point2D;
 
-/**
- * Created by admin on 2017-09-17.
- */
+//Haven't decided fully on permissions yet - things are public right now that probably won't be later.
+
 public abstract class GamePiece {
 
     private Point2D location;

@@ -5,7 +5,8 @@ import java.awt.geom.Point2D;
 public abstract class GamePiece {
 
     private Point2D location;
-    private static String colour;
+    // each piece keeps track of it's own colour, so "colour" shouldn't be static
+    private String colour;
     private boolean taken;
 
     public Point2D getLocation(){return location;}

@@ -52,7 +52,6 @@ public abstract class GamePieceEthan {
             }
         }
         //Update the view!
-        view.update();
         //change turn
     }
 }

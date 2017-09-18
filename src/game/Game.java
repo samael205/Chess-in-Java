@@ -13,15 +13,20 @@ public class Game {
 
     private GamePiece[][] chessBoard;
     private GamePiece[] takenPieces;
-    private String currentPlayer;
     private GamePiece currentPiece;
+    private String currentPlayer;
+    
 
     // Could have possible boolean argument for a timed game or not
+    
     public Game(){
         chessBoard = new GamePiece[8][8];
         currentPlayer = "white";
     }
-
+    
+    // We might want to consider having the current player be a class, it would be able to store it's opposite and it's colour. 
+    // It might look neater that way, and might make initialization a bit cleaner.
+    
     public void changeTurn(){
         if(currentPlayer.equals("white")){
             currentPlayer = "black";

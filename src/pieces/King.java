@@ -1,12 +1,14 @@
 package pieces;
 
-import java.awt.geom.Point2D;
+import util.intPair;
+
+import java.util.ArrayList;
 
 public class King extends GamePiece{
     public King(){
 
     }
-    public Point2D[] canMoveTo(){
+    public ArrayList<intPair> canMoveTo(){
         return null;
     }
     public boolean moveTo(){

@@ -1,6 +1,6 @@
 package game;
 
-import pieces.GamePiece;
+import pieces.*;
 
 public class Game {
     /*
@@ -11,27 +11,27 @@ public class Game {
       -what piece is selected
     */
 
-    private GamePiece[][] chessBoard;
+    public GamePiece[][] chessBoard;
     private GamePiece[] takenPieces;
+    private Player currentPlayer;
+    private Player blackPlayer;
+    private Player whitePlayer;
     private GamePiece currentPiece;
-    private String currentPlayer;
-    
 
     // Could have possible boolean argument for a timed game or not
-    
     public Game(){
         chessBoard = new GamePiece[8][8];
-        currentPlayer = "white";
+        chessBoard[2][1] = new Pawn();
+        blackPlayer = new Player("black");
+        whitePlayer = new Player("white");
+        currentPlayer = whitePlayer;
     }
-    
-    // We might want to consider having the current player be a class, it would be able to store it's opposite and it's colour. 
-    // It might look neater that way, and might make initialization a bit cleaner.
-    
+
     public void changeTurn(){
-        if(currentPlayer.equals("white")){
-            currentPlayer = "black";
+        if(currentPlayer.getColour().equals("white")){
+            currentPlayer = blackPlayer;
         }else{
-            currentPlayer = "white";
+            currentPlayer = whitePlayer;
         }
     }
 
@@ -40,20 +40,4 @@ public class Game {
         return chessBoard[x][y];
     }
 
-    public void setSelectedPiece(int x, int y){
-        /*
-         Sets the current selected piece to the one at (x,y), if it's an empty space, do nothing,
-         if it's the same piece, deselect it
-        */
-        if(chessBoard[x][y] == currentPiece){
-            currentPiece = null;
-        }else if(chessBoard[x][y] != null){
-            currentPiece = chessBoard[x][y];
-        }
-    }
-
-    public boolean moveTo(int x, int y){
-        // Tries to move the current piece to (x,y), returns true if it does, and false if it does not
-        return false;
-    }
 }

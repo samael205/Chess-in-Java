@@ -1,0 +1,12 @@
+Region{
+    -fx-min-width: 50;
+    -fx-min-height: 50;
+}
+
+#lightTile{
+    -fx-background-color: rgb(255,206,158);
+}
+
+#darkTile{
+    -fx-background-color: rgb(209,139,71);
+}

@@ -14,6 +14,7 @@ public abstract class GamePiece {
     protected String colour;
     protected intPair location;
     protected Game game;
+    protected String id;
 
     public String getColour(){ return colour; }
 

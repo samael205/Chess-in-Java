@@ -9,4 +9,5 @@ public class Player {
         inCheck = false;
     }
     public String getColour(){ return colour; }
+    public boolean isInCheck(){ return inCheck; }
 }

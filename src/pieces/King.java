@@ -5,8 +5,10 @@ import util.intPair;
 import java.util.ArrayList;
 
 public class King extends GamePiece{
-    public King(){
-
+    public King(intPair loc, String idString, String c){
+      location = loc;
+      id = idString;
+      colour = c;
     }
     public ArrayList<intPair> canMoveTo(){
         return null;

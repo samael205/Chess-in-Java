@@ -19,7 +19,7 @@ public abstract class GamePiece {
 
     public String getColour(){ return colour; }
 
-    public void setLocation(intPair loc){location = loc;}
+    public void setLocation(IntPair loc){location = loc;}
 
     public void clearCurrentSpace(){
         game.chessBoard[location.getX()][location.getY()] = null;
@@ -30,10 +30,10 @@ public abstract class GamePiece {
         clearCurrentSpace();
     }
 
-    public void moveTo(intPair target){
+    public void moveTo(IntPair target){
         ArrayList<intPair> possibleLocations = this.canMoveTo();
-        for (intPair loc : possibleLocations){
-            if (target == loc){
+        for(IntPair loc : possibleLocations){
+            if(target == loc){
                 //Check if there is an enemy piece there.
                 // canMoveTo will eliminate possible friendly pieces and game borders.
                 if (game.chessBoard[target.getX()][target.getY()] != null){

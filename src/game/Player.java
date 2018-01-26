@@ -1,13 +1,20 @@
 package game;
 
 public class Player {
-    private String colour;
+
+    private short colour;
     private boolean inCheck;
 
-    public Player(String c){
+    //1 is white, 0 is black
+    public Player(short c){
         colour = c;
         inCheck = false;
     }
-    public String getColour(){ return colour; }
+
+    public short getColour(){ return colour; }
     public boolean isInCheck(){ return inCheck; }
+    public void setCheck(boolean check){
+      inCheck = check;
+    }
+
 }

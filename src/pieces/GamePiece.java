@@ -24,7 +24,7 @@ public abstract class GamePiece {
     public void clearCurrentSpace(){
         game.chessBoard[location.getX()][location.getY()] = null;
     }
-    public void take(){
+    public void pieceIsTaken(){
         location = null;
         taken = true;
         clearCurrentSpace();
@@ -37,7 +37,7 @@ public abstract class GamePiece {
                 //Check if there is an enemy piece there.
                 // canMoveTo will eliminate possible friendly pieces and game borders.
                 if (game.chessBoard[target.getX()][target.getY()] != null){
-                    game.chessBoard[target.getX()][target.getY()].take();
+                    game.chessBoard[target.getX()][target.getY()].pieceIsTaken();
                 }
                 //empty the current position
                 clearCurrentSpace();

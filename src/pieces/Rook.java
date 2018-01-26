@@ -5,14 +5,18 @@ import util.IntPair;
 import java.util.ArrayList;
 
 public class Rook extends GamePiece{
+  
     public Rook(IntPair loc, String idString, String c){
+
       location = loc;
       id = idString;
       colour = c;
       hasMoved = false;
       isThreatening = false;
       taken = false;
+
     }
+
     public ArrayList<IntPair> canMoveTo(){
 
         ArrayList<IntPair> possibleLocations = new ArrayList<IntPair>();

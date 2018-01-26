@@ -39,8 +39,8 @@ public class ChessView extends GridPane{
         game = g;
 
         boolean temp = true;
-        for (int r=0; r<8; r++) {
-            for (int c=0; c<8; c++) {
+        for (int r = 0; r < 8; r++) {
+            for (int c = 0; c < 8; c++) {
                 tiles[r][c] = new Region();
                 /*
                 Creating the checkerboard pattern for the tiles by adding CSS ids.
@@ -75,8 +75,8 @@ public class ChessView extends GridPane{
     }
 
     public void update(){
-        for(int r=0; r<8; r++){
-            for(int c=0; c<8; c++){
+        for(int r = 0; r < 8; r++){
+            for(int c = 0; c < 8; c++){
                 GamePiece piece = game.pieceAt(r,c);
                 if(piece != null) {
                     String type = "";
@@ -103,10 +103,10 @@ public class ChessView extends GridPane{
         Event handler for every tile. Starts by getting which tile is pressed,
         which we will use later to handle movement of pieces.
          */
-        int r, c=-1;
+        int r, c =- 1;
         OUTER:
-        for(r=0; r<8; r++){
-            for(c=0; c<8; c++){
+        for(r = 0; r < 8; r++){
+            for(c = 0; c < 8; c++){
                 if(e.getSource() == tiles[r][c])
                     break OUTER;
             }

@@ -8,11 +8,12 @@ import java.util.ArrayList;
 
 
 public abstract class GamePiece {
+  
     protected boolean hasMoved;
     protected boolean isThreatening;
     protected boolean taken;
     protected String colour;
-    protected intPair location;
+    protected IntPair location;
     protected Game game;
     protected String id;
 

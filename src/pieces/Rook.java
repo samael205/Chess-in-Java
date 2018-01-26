@@ -14,7 +14,24 @@ public class Rook extends GamePiece{
       taken = false;
     }
     public ArrayList<IntPair> canMoveTo(){
-        return null;
+
+        ArrayList<IntPair> possibleLocations = new ArrayList<IntPair>();
+        int i, j;
+
+        i = location.getX();
+        j = location.getY();
+
+        //Go through all x values until a collision occurs, add all locations where there is no collision
+        while(i < 8 && game.chessBoard[i, location.getY()] == null){
+          possibleLocations.add(new IntPair(i, location.getY()));
+        }
+
+        //Go through all y values until a collision occurs, add all locations where there is no collision
+        while(j < 8 && game.chessBoard[location.getX(), j] == null){
+          possibleLocations.add(new IntPair(location.getX(), j));
+        }
+
+        return possibleLocations;
     }
     public boolean moveTo(){
         return false;

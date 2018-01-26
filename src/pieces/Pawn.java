@@ -9,6 +9,9 @@ public class Pawn extends GamePiece{
       location = loc;
       id = idString;
       colour = c;
+      hasMoved = false;
+      isThreatening = false;
+      taken = false;
     }
     public ArrayList<intPair> canMoveTo(){
         return null;

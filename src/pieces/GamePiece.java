@@ -18,7 +18,7 @@ public abstract class GamePiece {
 
     public String getColour(){ return colour; }
 
-    public void setLocation(intPair l){location = l;}
+    public void setLocation(intPair loc){location = loc;}
 
     public void clearCurrentSpace(){
         game.chessBoard[location.getX()][location.getY()] = null;

@@ -15,16 +15,7 @@ public class App extends Application {
         ChessView aView = new ChessView(game);
         aPane.getChildren().add(aView);
         Scene aScene = new Scene(aPane);
-        /*
-        Adding a stylesheet to control how to Application looks.
-
-        I feel that having a stylesheet is better than declaring all the styling in the code.
-        This will make the code look cleaner, and will have all control over the style centralized.
-
-        Also, using a stylesheet will be good if we ever want to have multiple styles for the view.
-        We can have multiple stylesheets and change this one line,
-        rather than going through all the code and changing each elements .setStyle() method.
-        */
+      
         aScene.getStylesheets().add("/resources/style.css");
         primaryStage.setScene(aScene);
         primaryStage.show();

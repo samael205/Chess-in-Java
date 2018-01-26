@@ -1,7 +1,7 @@
 package pieces;
 
 import game.Game;
-import util.intPair;
+import util.IntPair;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;

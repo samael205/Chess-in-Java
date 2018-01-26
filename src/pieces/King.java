@@ -1,11 +1,11 @@
 package pieces;
 
-import util.intPair;
+import util.IntPair;
 
 import java.util.ArrayList;
 
 public class King extends GamePiece{
-    public King(intPair loc, String idString, String c){
+    public King(IntPair loc, String idString, String c){
       location = loc;
       id = idString;
       colour = c;
@@ -13,7 +13,7 @@ public class King extends GamePiece{
       isThreatening = false;
       taken = false;
     }
-    public ArrayList<intPair> canMoveTo(){
+    public ArrayList<IntPair> canMoveTo(){
         return null;
     }
     public boolean moveTo(){

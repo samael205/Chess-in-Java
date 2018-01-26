@@ -1,6 +1,6 @@
 package util;
 
-public class intPair {
+public class IntPair {
     private int x;
     private int y;
     public intPair(int _x, int _y){

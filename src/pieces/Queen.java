@@ -17,6 +17,7 @@ public class Queen extends GamePiece{
         return null;
     }
     public boolean moveTo(){
+      hasMoved = true;
         return false;
     };
 }

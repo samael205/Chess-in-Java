@@ -21,35 +21,37 @@ public class Rook extends GamePiece{
         i = location.getX();
         j = location.getY();
 
-        if(colour.equals("white")){
-          //Go through all x values until a collision occurs, add all locations where there is no collision
-          while(i < 8 && game.chessBoard[i, location.getY()] == null){
-            possibleLocations.add(new IntPair(i, location.getY()));
-            i++;
-          }
 
-          //Go through all y values until a collision occurs, add all locations where there is no collision
-          while(j < 8 && game.chessBoard[location.getX(), j] == null){
-            possibleLocations.add(new IntPair(location.getX(), j));
-            j++;
-          }
+        //Move right until collision
+        while(i < 8 && game.chessBoard[i, location.getY()] == null){
+          possibleLocations.add(new IntPair(i, location.getY()));
+          i++;
         }
-        else{
-          while(i > 0 && game.chessBoard[i, location.getY()] == null){
-            possibleLocations.add(new IntPair(i, location.getY()));
-            i--;
-          }
 
-          //Go through all y values until a collision occurs, add all locations where there is no collision
-          while(j > 0 && game.chessBoard[location.getX(), j] == null){
-            possibleLocations.add(new IntPair(location.getX(), j));
-            j--;
-          }
+        //Move up until collision
+        while(j < 8 && game.chessBoard[location.getX(), j] == null){
+          possibleLocations.add(new IntPair(location.getX(), j));
+          j++;
         }
+
+        i = location.getX();
+        //Move left until collision
+        while(i > 0 && game.chessBoard[i, location.getY()] == null){
+          possibleLocations.add(new IntPair(i, location.getY()));
+          i--;
+        }
+        j = location.getY();
+        //Move down until collision
+        while(j > 0 && game.chessBoard[location.getX(), j] == null){
+          possibleLocations.add(new IntPair(location.getX(), j));
+          j--;
+        }
+
 
         return possibleLocations;
     }
     public boolean moveTo(){
+      hasMoved = true;
         return false;
     };
 }

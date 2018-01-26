@@ -17,6 +17,7 @@ public class Knight extends GamePiece{
         return null;
     }
     public boolean moveTo(){
+      hasMoved = true;
         return false;
     };
 }

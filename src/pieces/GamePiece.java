@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 public abstract class GamePiece {
-  
+
     protected boolean hasMoved;
     protected boolean isThreatening;
     protected boolean taken;
@@ -45,9 +45,7 @@ public abstract class GamePiece {
                 this.setLocation(target);
                 //update chessboard with this piece at current location
                 game.chessBoard[target.getX()][target.getY()] = this;
-                if(!hasMoved){
-                    hasMoved = true;
-                }
+                hasMoved = true;
             }
         }
     }

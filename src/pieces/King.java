@@ -15,9 +15,6 @@ public class King extends GamePiece{
     }
     public ArrayList<IntPair> canMoveTo(){
         return null;
-    }
-    public boolean moveTo(){
-      hasMoved = true;
-        return false;
     };
+
 }

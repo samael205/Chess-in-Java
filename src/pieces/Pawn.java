@@ -47,9 +47,5 @@ public class Pawn extends GamePiece{
       }
       return possibleLocations;
 
-    }
-    public boolean moveTo(){
-        hasMoved = true;
-        return false;
     };
 }

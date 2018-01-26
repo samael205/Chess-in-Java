@@ -22,7 +22,7 @@ public class Bishop extends GamePiece{
       j = location.getY();
 
       //Code for bishops is the same for black and white
-      
+
       //add locations moving up and to the right
       while(i < 8 && j < 8 && game.chessBoard[i, j] == null){
         possibleLocations.add(new IntPair(i, j));
@@ -58,10 +58,5 @@ public class Bishop extends GamePiece{
 
       return possibleLocations;
 
-    }
-
-    public boolean moveTo(){
-      hasMoved = true;
-        return false;
     };
 }

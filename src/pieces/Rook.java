@@ -21,7 +21,6 @@ public class Rook extends GamePiece{
         i = location.getX();
         j = location.getY();
 
-
         //Move right until collision
         while(i < 8 && game.chessBoard[i, location.getY()] == null){
           possibleLocations.add(new IntPair(i, location.getY()));
@@ -40,6 +39,7 @@ public class Rook extends GamePiece{
           possibleLocations.add(new IntPair(i, location.getY()));
           i--;
         }
+
         j = location.getY();
         //Move down until collision
         while(j > 0 && game.chessBoard[location.getX(), j] == null){
@@ -49,9 +49,6 @@ public class Rook extends GamePiece{
 
 
         return possibleLocations;
-    }
-    public boolean moveTo(){
-      hasMoved = true;
-        return false;
     };
+
 }

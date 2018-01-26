@@ -21,14 +21,30 @@ public class Rook extends GamePiece{
         i = location.getX();
         j = location.getY();
 
-        //Go through all x values until a collision occurs, add all locations where there is no collision
-        while(i < 8 && game.chessBoard[i, location.getY()] == null){
-          possibleLocations.add(new IntPair(i, location.getY()));
-        }
+        if(colour.equals("white")){
+          //Go through all x values until a collision occurs, add all locations where there is no collision
+          while(i < 8 && game.chessBoard[i, location.getY()] == null){
+            possibleLocations.add(new IntPair(i, location.getY()));
+            i++;
+          }
 
-        //Go through all y values until a collision occurs, add all locations where there is no collision
-        while(j < 8 && game.chessBoard[location.getX(), j] == null){
-          possibleLocations.add(new IntPair(location.getX(), j));
+          //Go through all y values until a collision occurs, add all locations where there is no collision
+          while(j < 8 && game.chessBoard[location.getX(), j] == null){
+            possibleLocations.add(new IntPair(location.getX(), j));
+            j++;
+          }
+        }
+        else{
+          while(i > 0 && game.chessBoard[i, location.getY()] == null){
+            possibleLocations.add(new IntPair(i, location.getY()));
+            i--;
+          }
+
+          //Go through all y values until a collision occurs, add all locations where there is no collision
+          while(j > 0 && game.chessBoard[location.getX(), j] == null){
+            possibleLocations.add(new IntPair(location.getX(), j));
+            j--;
+          }
         }
 
         return possibleLocations;

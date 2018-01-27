@@ -19,7 +19,7 @@ public class Rook extends GamePiece{
 
     public ArrayList<IntPair> canMoveTo(){
 
-        ArrayList<IntPair> possibleLocations = new ArrayList<IntPair>();
+        ArrayList<IntPair> possibleLocations = new ArrayList<>();
         int i, j;
         boolean collision;
 
@@ -69,7 +69,6 @@ public class Rook extends GamePiece{
           possibleLocations.add(new IntPair(location.getX(), j));
           j--;
         }
-
 
         return possibleLocations;
     };

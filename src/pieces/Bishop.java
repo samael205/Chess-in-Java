@@ -19,7 +19,7 @@ public class Bishop extends GamePiece{
 
     public ArrayList<IntPair> canMoveTo(){
 
-      ArrayList<IntPair> possibleLocations = new ArrayList<IntPair>();
+      ArrayList<IntPair> possibleLocations = new ArrayList<>();
       int i, j;
 
       i = location.getX();

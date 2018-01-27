@@ -2,16 +2,16 @@ package game;
 
 public class Player {
 
-    private short colour;
+    private String colour;
     private boolean inCheck;
 
     //1 is white, 0 is black
-    public Player(short c){
+    public Player(String c){
         colour = c;
         inCheck = false;
     }
 
-    public short getColour(){ return colour; }
+    public String getColour(){ return colour; }
     public boolean isInCheck(){ return inCheck; }
     public void setCheck(boolean check){
       inCheck = check;

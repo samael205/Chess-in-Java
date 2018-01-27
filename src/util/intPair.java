@@ -3,7 +3,7 @@ package util;
 public class IntPair {
     private int x;
     private int y;
-    public intPair(int _x, int _y){
+    public IntPair(int _x, int _y){
         x = _x;
         y = _y;
     }

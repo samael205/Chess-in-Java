@@ -31,7 +31,7 @@ public abstract class GamePiece {
     }
 
     public void moveTo(IntPair target){
-        ArrayList<intPair> possibleLocations = this.canMoveTo();
+        ArrayList<IntPair> possibleLocations = this.canMoveTo();
         for(IntPair loc : possibleLocations){
             if(target == loc){
                 //Check if there is an enemy piece there.
@@ -50,5 +50,5 @@ public abstract class GamePiece {
         }
     }
 
-    public abstract ArrayList<intPair> canMoveTo();
+    public abstract ArrayList<IntPair> canMoveTo();
 }

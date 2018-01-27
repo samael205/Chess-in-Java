@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Pawn extends GamePiece{
 
-    public Pawn(IntPair loc, String idString, String c){
+    public Pawn(String idString, IntPair loc, String c){
 
       location = loc;
       id = idString;
@@ -23,27 +23,27 @@ public class Pawn extends GamePiece{
       //IMPORTANT: This does not yet implement the ability for pawn's to take
       //pieces (ie move diagonally)
 
-      ArrayList<IntPair> possibleLocations = new ArrayList<IntPair>();
+      ArrayList<IntPair> possibleLocations = new ArrayList<>();
       int i, j;
 
       if(colour.equals("white")){
         //Check if the square in front of the pawn is occupied.
-        if(location.getY() + 1 < 8 && game.chessBoard[location.getX(), location.getY() + 1] == null){
+        if(location.getY() + 1 < 8 && game.pieceAt(location.getX(), location.getY() + 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() + 1));
 
           //Pawns can move an extra square on their first move
-          if(!hasMoved && game.chessBoard[location.getX(), location.getY() + 2] == null){
+          if(!hasMoved && game.pieceAt(location.getX(), location.getY() + 2) == null){
             possibleLocations.add(new IntPair(location.getX(), location.getY() + 2));
           }
         }
       }
       else{
 
-        if(location.getY() - 1 > 0 && game.chessBoard[location.getX(), location.getY() - 1] == null){
+        if(location.getY() - 1 > 0 && game.pieceAt(location.getX(), location.getY() - 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() - 1));
 
           //Pawns can move an extra square on their first move
-          if(!hasMoved && game.chessBoard[location.getX(), location.getY() - 2] == null){
+          if(!hasMoved && game.pieceAt(location.getX(), location.getY() - 2) == null){
             possibleLocations.add(new IntPair(location.getX(), location.getY() - 2));
           }
         }

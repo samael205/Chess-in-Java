@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class King extends GamePiece{
 
-    public King(IntPair loc, String idString, String c){
+    public King(String idString, IntPair loc, String c){
 
       location = loc;
       id = idString;

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Bishop extends GamePiece{
 
-    public Bishop(IntPair loc, String idString, String c){
+    public Bishop(String idString, IntPair loc,  String c){
 
       location = loc;
       id = idString;
@@ -30,7 +30,7 @@ public class Bishop extends GamePiece{
 
       //add locations moving up and to the right
       while(i < 8 && j < 8 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -43,7 +43,7 @@ public class Bishop extends GamePiece{
 
       //add locations moving up and to the left
       while(i > 0 && j < 8 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -56,7 +56,7 @@ public class Bishop extends GamePiece{
 
       //add locatinos moving down and to the left
       while(i > 0 && j > 0 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -69,7 +69,7 @@ public class Bishop extends GamePiece{
 
       //add locations moving down and to the right
       while(i < 8 && j > 0 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));

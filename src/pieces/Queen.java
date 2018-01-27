@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Queen extends GamePiece{
 
-    public Queen(IntPair loc, String idString, String c){
+    public Queen(String idString, IntPair loc, String c){
 
       location = loc;
       id = idString;
@@ -27,8 +27,8 @@ public class Queen extends GamePiece{
       j = location.getY();
       collision = false;
 
-      while(i < 8) && !collision){
-        if(game.chessBoard[i, location.getY()] != null){
+      while(i < 8 && !collision){
+        if(game.pieceAt(i, location.getY()) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, location.getY()));
@@ -39,7 +39,7 @@ public class Queen extends GamePiece{
 
       //Move up until collision
       while(j < 8 && !collision){
-        if(game.chessBoard[getX(), j] != null){
+        if(game.pieceAt(location.getX(), j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(location.getX(), j));
@@ -50,7 +50,7 @@ public class Queen extends GamePiece{
       i = location.getX();
       //Move left until collision
       while(i > 0 && !collision){
-        if(game.chessBoard[i, location.getY()] != null){
+        if(game.pieceAt(i, location.getY()) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, location.getY()));
@@ -61,7 +61,7 @@ public class Queen extends GamePiece{
       j = location.getY();
       //Move down until collision
       while(j > 0 && !collision){
-        if(game.chessBoard[getX(), j] != null){
+        if(game.pieceAt(location.getX(), j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(location.getX(), j));
@@ -74,7 +74,7 @@ public class Queen extends GamePiece{
 
       //add locations moving up and to the right
       while(i < 8 && j < 8 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -87,7 +87,7 @@ public class Queen extends GamePiece{
 
       //add locations moving up and to the left
       while(i > 0 && j < 8 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -98,9 +98,9 @@ public class Queen extends GamePiece{
       j = location.getY();
       collision = false;
 
-      //add locatinos moving down and to the left
+      //add locations moving down and to the left
       while(i > 0 && j > 0 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));
@@ -113,7 +113,7 @@ public class Queen extends GamePiece{
 
       //add locations moving down and to the right
       while(i < 8 && j > 0 && !collision){
-        if(game.chessBoard[i, j] != null){
+        if(game.pieceAt(i, j) != null){
            collision = true;
         }
         possibleLocations.add(new IntPair(i, j));

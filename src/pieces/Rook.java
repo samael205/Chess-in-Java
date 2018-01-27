@@ -1,12 +1,13 @@
 package pieces;
 
+import game.Game;
 import util.IntPair;
 
 import java.util.ArrayList;
 
 public class Rook extends GamePiece{
   
-    public Rook(String idString, IntPair loc, String c){
+    public Rook(String idString, IntPair loc, String c, Game g){
 
       location = loc;
       id = idString;
@@ -14,6 +15,7 @@ public class Rook extends GamePiece{
       hasMoved = false;
       isThreatening = false;
       taken = false;
+      game = g;
 
     }
 
@@ -71,6 +73,6 @@ public class Rook extends GamePiece{
         }
 
         return possibleLocations;
-    };
+    }
 
 }

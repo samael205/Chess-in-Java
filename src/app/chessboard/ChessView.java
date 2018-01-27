@@ -2,10 +2,11 @@ package app.chessboard;
 
 import game.Game;
 import javafx.event.Event;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
+import javafx.scene.layout.*;
 import pieces.*;
+import util.IntPair;
 
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ChessView extends GridPane{
@@ -112,7 +113,20 @@ public class ChessView extends GridPane{
             }
         }
         Region pressedTile = tiles[r][c];
-
+        //if the tile has a piece
+        if(game.pieceAt(r, c) != null){
+            //if that piece belongs to them
+            if(game.pieceAt(r, c).getColour().equals(game.getCurrentPlayer().getColour())){
+                ArrayList<IntPair> possibleLocations = new ArrayList<>(game.pieceAt(r, c).canMoveTo());
+                /*
+                for(IntPair loc : possibleLocations){
+                    tiles[loc.getX()][loc.getY()].setId("redTile");
+                }
+                */
+                tiles[r][c].setStyle("-fx-text-fill: red");
+            }
+        }
+        update();
         // Test code. Sets the clicked tile to a random piece
         /*
         final String[] pieceType = {"_bishop.png", "_king.png", "_knight.png", "_pawn.png", "_queen.png", "_rook.png"};

@@ -10,3 +10,7 @@ Region{
 #darkTile{
     -fx-background-color: rgb(209,139,71);
 }
+
+#redTile{
+    -fx-background-color: rgb(176, 0, 18);
+}

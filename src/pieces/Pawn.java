@@ -1,12 +1,13 @@
 package pieces;
 
+import game.Game;
 import util.IntPair;
 
 import java.util.ArrayList;
 
 public class Pawn extends GamePiece{
 
-    public Pawn(String idString, IntPair loc, String c){
+    public Pawn(String idString, IntPair loc, String c, Game g){
 
       location = loc;
       id = idString;
@@ -14,6 +15,7 @@ public class Pawn extends GamePiece{
       hasMoved = false;
       isThreatening = false;
       taken = false;
+      game = g;
       
     }
 
@@ -28,6 +30,8 @@ public class Pawn extends GamePiece{
 
       if(colour.equals("black")){
         //Check if the square in front of the pawn is occupied.
+
+
         if(location.getY() + 1 < 8 && game.pieceAt(location.getX(), location.getY() + 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() + 1));
 
@@ -50,5 +54,5 @@ public class Pawn extends GamePiece{
       }
       return possibleLocations;
 
-    };
+    }
 }

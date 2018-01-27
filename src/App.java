@@ -1,4 +1,3 @@
-package app;
 
 import app.chessboard.ChessView;
 import game.Game;
@@ -8,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    
     public void start(Stage primaryStage){
         GridPane aPane = new GridPane();
 

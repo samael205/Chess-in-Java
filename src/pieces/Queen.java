@@ -1,12 +1,13 @@
 package pieces;
 
+import game.Game;
 import util.IntPair;
 
 import java.util.ArrayList;
 
 public class Queen extends GamePiece{
 
-    public Queen(String idString, IntPair loc, String c){
+    public Queen(String idString, IntPair loc, String c, Game g){
 
       location = loc;
       id = idString;
@@ -14,6 +15,7 @@ public class Queen extends GamePiece{
       hasMoved = false;
       isThreatening = false;
       taken = false;
+      game = g;
       
     }
 
@@ -135,6 +137,6 @@ public class Queen extends GamePiece{
       }
 
       return possibleLocations;
-    };
+    }
 
 }

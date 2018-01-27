@@ -1,12 +1,13 @@
 package pieces;
 
+import game.Game;
 import util.IntPair;
 
 import java.util.ArrayList;
 
 public class Bishop extends GamePiece{
 
-    public Bishop(String idString, IntPair loc,  String c){
+    public Bishop(String idString, IntPair loc,  String c, Game g){
 
       location = loc;
       id = idString;
@@ -14,6 +15,7 @@ public class Bishop extends GamePiece{
       hasMoved = false;
       isThreatening = false;
       taken = false;
+      game = g;
       
     }
 
@@ -85,5 +87,5 @@ public class Bishop extends GamePiece{
 
       return possibleLocations;
 
-    };
+    }
 }

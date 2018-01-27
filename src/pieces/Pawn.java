@@ -24,9 +24,9 @@ public class Pawn extends GamePiece{
       //pieces (ie move diagonally)
 
       ArrayList<IntPair> possibleLocations = new ArrayList<>();
-      int i, j;
+      //int i, j;
 
-      if(colour.equals("white")){
+      if(colour.equals("black")){
         //Check if the square in front of the pawn is occupied.
         if(location.getY() + 1 < 8 && game.pieceAt(location.getX(), location.getY() + 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() + 1));
@@ -37,8 +37,7 @@ public class Pawn extends GamePiece{
           }
         }
       }
-      else{
-
+      else{ //for white pawns
         if(location.getY() - 1 > 0 && game.pieceAt(location.getX(), location.getY() - 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() - 1));
 

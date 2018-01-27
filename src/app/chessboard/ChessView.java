@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ChessView extends GridPane{
     /*
     This is the main class for the view of the game.
-    Currently on has one Node element, 'board', but will have more elements such as:
+    Currently only has one Node element, 'board', but will have more elements such as:
      -current player
      -buttons for game options
      -turn counter(maybe)
@@ -103,7 +103,7 @@ public class ChessView extends GridPane{
         Event handler for every tile. Starts by getting which tile is pressed,
         which we will use later to handle movement of pieces.
          */
-        int r, c =- 1;
+        int r, c = 0;
         OUTER:
         for(r = 0; r < 8; r++){
             for(c = 0; c < 8; c++){
@@ -122,6 +122,7 @@ public class ChessView extends GridPane{
         int index = ThreadLocalRandom.current().nextInt(6);
         setImage(r, c,path + pieceType[index]);
         */
+
     }
 
     private void setImage(int x, int y, String path){

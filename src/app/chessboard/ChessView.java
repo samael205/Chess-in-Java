@@ -127,15 +127,7 @@ public class ChessView extends GridPane{
             }
         }
         update();
-        // Test code. Sets the clicked tile to a random piece
-        /*
-        final String[] pieceType = {"_bishop.png", "_king.png", "_knight.png", "_pawn.png", "_queen.png", "_rook.png"};
-        String path = "/resources/images/";
-        if(ThreadLocalRandom.current().nextBoolean()) path += "white";
-        else path += "black";
-        int index = ThreadLocalRandom.current().nextInt(6);
-        setImage(r, c,path + pieceType[index]);
-        */
+        
 
     }
 

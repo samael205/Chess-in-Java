@@ -133,7 +133,11 @@ public class ChessView extends GridPane{
         }
         update();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 1fa1a3079927dfeefd81c165e4d84690e1300bd7
 =======
         
 >>>>>>> 1fa1a3079927dfeefd81c165e4d84690e1300bd7

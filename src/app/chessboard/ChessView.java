@@ -3,11 +3,11 @@ package app.chessboard;
 import game.Game;
 import javafx.event.Event;
 import javafx.scene.layout.*;
+import javafx.scene.control.Button;
 import pieces.*;
 import util.IntPair;
-
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 public class ChessView extends GridPane{
     /*
@@ -22,27 +22,28 @@ public class ChessView extends GridPane{
     'board' holds the tiles in a GridPane. Treating the board as one element will help for formatting
     when we add more elements to the view.
 
-    I chose to use the Region class over the Button class because Regions have no built-in styling,
+    I chose to use the Button class over the Button class because Buttons have no built-in styling,
     while Buttons have a lot. This will allows us to get the tiles to look exactly how we want.
      */
     private GridPane board;
-    private Region[][] tiles;
+    private Button[][] tiles;
     private Game game;
 
-    public Region[][] getTiles() { return tiles; }
+    public Button[][] getTiles() { return tiles; }
     public Game getGame(){ return game; }
 
     public ChessView(Game g){
         board = new GridPane();
         board.setId("chessBoard");
-        tiles = new Region[8][8];
+        tiles = new Button[8][8];
 
         game = g;
 
         boolean temp = true;
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
-                tiles[r][c] = new Region();
+                tiles[r][c] = new Button();
+                tiles[r][c].setPrefSize(100, 100);
                 /*
                 Creating the checkerboard pattern for the tiles by adding CSS ids.
                 This is so the tiles can easily be controlled by the stylesheet.
@@ -76,6 +77,7 @@ public class ChessView extends GridPane{
     }
 
     public void update(){
+
         for(int r = 0; r < 8; r++){
             for(int c = 0; c < 8; c++){
                 GamePiece piece = game.pieceAt(r,c);
@@ -93,7 +95,9 @@ public class ChessView extends GridPane{
                         type = "_queen.png";
                     else if (piece instanceof Rook)
                         type = "_rook.png";
+
                     setImage(r, c, "/resources/images/" + piece.getColour() + type);
+
                 }
             }
         }
@@ -109,10 +113,11 @@ public class ChessView extends GridPane{
         for(r = 0; r < 8; r++){
             for(c = 0; c < 8; c++){
                 if(e.getSource() == tiles[r][c])
+                    tiles[r][c].setStyle("-fx-background-color: red");
                     break OUTER;
             }
         }
-        Region pressedTile = tiles[r][c];
+        Button pressedTile = tiles[r][c];
         //if the tile has a piece
         if(game.pieceAt(r, c) != null){
             //if that piece belongs to them
@@ -127,15 +132,11 @@ public class ChessView extends GridPane{
             }
         }
         update();
-        // Test code. Sets the clicked tile to a random piece
-        /*
-        final String[] pieceType = {"_bishop.png", "_king.png", "_knight.png", "_pawn.png", "_queen.png", "_rook.png"};
-        String path = "/resources/images/";
-        if(ThreadLocalRandom.current().nextBoolean()) path += "white";
-        else path += "black";
-        int index = ThreadLocalRandom.current().nextInt(6);
-        setImage(r, c,path + pieceType[index]);
-        */
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> 1fa1a3079927dfeefd81c165e4d84690e1300bd7
 
     }
 

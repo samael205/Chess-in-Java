@@ -142,7 +142,7 @@ public class ChessView extends GridPane{
                 ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
 
                 for(IntPair loc : possibleLocations){
-                    tiles[loc.getX()][loc.getY()].setStyle("-fx-background-color: blue;");
+                    tiles[loc.getX()][loc.getY()].setStyle("-fx-border-color: blue;");
                     //System.out.println("X");
                     //System.out.println(loc.getX());
                 }

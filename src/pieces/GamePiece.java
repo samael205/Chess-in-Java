@@ -17,6 +17,16 @@ public abstract class GamePiece {
     protected Game game;
     protected String id;
 
+    public GamePiece(String idString, IntPair loc, String c, Game g){
+        location = loc;
+        id = idString;
+        colour = c;
+        hasMoved = false;
+        isThreatening = false;
+        taken = false;
+        game = g;
+    }
+
     public String getColour(){ return colour; }
 
     public void setLocation(IntPair loc){location = loc;}

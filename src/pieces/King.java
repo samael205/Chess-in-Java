@@ -8,15 +8,7 @@ import java.util.ArrayList;
 public class King extends GamePiece{
 
     public King(String idString, IntPair loc, String c, Game g){
-
-      location = loc;
-      id = idString;
-      colour = c;
-      hasMoved = false;
-      isThreatening = false;
-      taken = false;
-      game = g;
-
+        super(idString, loc, c, g);
     }
 
     public ArrayList<IntPair> canMoveTo(){

@@ -28,6 +28,7 @@ public class ChessView extends GridPane{
     private GridPane board;
     private Button[][] tiles;
     private Game game;
+    private GamePiece selectedPiece;
 
     public Button[][] getTiles() { return tiles; }
     public Game getGame(){ return game; }
@@ -42,17 +43,17 @@ public class ChessView extends GridPane{
         boolean temp = true;
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
-                tiles[r][c] = new Button();
-                tiles[r][c].setPrefSize(100, 100);
+                tiles[c][r] = new Button();
+                tiles[c][r].setPrefSize(100, 100);
                 /*
                 Creating the checkerboard pattern for the tiles by adding CSS ids.
                 This is so the tiles can easily be controlled by the stylesheet.
                 See 'App.java' for info on CSS styling.
                 */
                 if(temp){
-                    tiles[r][c].setId("lightTile");
+                    tiles[c][r].setId("lightTile");
                 }else{
-                    tiles[r][c].setId("darkTile");
+                    tiles[c][r].setId("darkTile");
                 }
                 temp = !temp;
 
@@ -66,10 +67,10 @@ public class ChessView extends GridPane{
                     }
                 });
                 */
-                tiles[r][c].setOnMousePressed(e -> handleMousePress(e));
+                tiles[c][r].setOnMousePressed(e -> handleMousePress(e));
 
                 // Adding the tile to the board
-                board.add(tiles[r][c], r, c);
+                board.add(tiles[c][r], c, r);
             }
             temp = !temp;
         }
@@ -77,10 +78,23 @@ public class ChessView extends GridPane{
     }
 
     public void update(){
+        if(selectedPiece != null){
+            ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
 
+            for(int r = 0; r < 8; r++){
+                for(int c = 0; c < 8; c++){
+                    for(int i = 0; i < possibleLocations.size(); i++){
+                    if(possibleLocations.get(i).getX() == c && possibleLocations.get(i).getY() == r){
+                        //tiles[c][r].setStyle("-fx-background-color: red");
+                    }
+                    }
+                }
+            }
+
+        }
         for(int r = 0; r < 8; r++){
             for(int c = 0; c < 8; c++){
-                GamePiece piece = game.pieceAt(r,c);
+                GamePiece piece = game.pieceAt(c,r);
                 if(piece != null) {
                     String type = "";
                     if (piece instanceof Bishop)
@@ -96,47 +110,52 @@ public class ChessView extends GridPane{
                     else if (piece instanceof Rook)
                         type = "_rook.png";
 
-                    setImage(r, c, "/resources/images/" + piece.getColour() + type);
+                    setImage(c, r, "/resources/images/" + piece.getColour() + type);
 
                 }
             }
         }
     }
 
-    private void handleMousePress(Event e){
+    private void handleMousePress(Event e) {
         /*
         Event handler for every tile. Starts by getting which tile is pressed,
         which we will use later to handle movement of pieces.
          */
         int r, c = 0;
         OUTER:
-        for(r = 0; r < 8; r++){
-            for(c = 0; c < 8; c++){
-                if(e.getSource() == tiles[r][c])
-                    tiles[r][c].setStyle("-fx-background-color: red");
+        for (r = 0; r < 8; r++) {
+            for (c = 0; c < 8; c++) {
+                if (e.getSource() == tiles[c][r]) {
+                    tiles[c][r].setStyle("-fx-border-color: red;");
                     break OUTER;
-            }
-        }
-        Button pressedTile = tiles[r][c];
-        //if the tile has a piece
-        if(game.pieceAt(r, c) != null){
-            //if that piece belongs to them
-            if(game.pieceAt(r, c).getColour().equals(game.getCurrentPlayer().getColour())){
-                ArrayList<IntPair> possibleLocations = new ArrayList<>(game.pieceAt(r, c).canMoveTo());
-                /*
-                for(IntPair loc : possibleLocations){
-                    tiles[loc.getX()][loc.getY()].setId("redTile");
                 }
-                */
-                tiles[r][c].setStyle("-fx-text-fill: red");
             }
         }
-        update();
+        Button pressedTile = tiles[c][r];
+        //if the tile has a piece
+        if (game.pieceAt(c, r) != null) {
+            //if that piece belongs to them
+            if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
+
+                selectedPiece = game.pieceAt(c, r);
+                ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
+
+                for(IntPair loc : possibleLocations){
+                    tiles[loc.getX()][loc.getY()].setStyle("-fx-background-color: blue;");
+                    //System.out.println("X");
+                    //System.out.println(loc.getX());
+                }
+
+            }
+         }
+     update();
 
     }
 
     private void setImage(int x, int y, String path){
         // Sets the current background image of the passed tile to the one at the passed path, and re-sizes it
+        //tiles[x][y].getStyle() +
         tiles[x][y].setStyle("-fx-background-image: url(" + path + ");"
                 + "-fx-background-size: " + (int)tiles[x][y].getWidth() + ", " + (int)tiles[x][y].getHeight());
     }

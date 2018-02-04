@@ -54,7 +54,7 @@ public abstract class GamePiece {
                 //update the piece's location to the target
                 this.setLocation(target);
                 //update chessboard with this piece at current location
-                game.chessBoard[target.getX()][target.getY()] = this;
+                game.setPieceAt(target.getX(), target.getY(), this);
                 hasMoved = true;
             }
         }

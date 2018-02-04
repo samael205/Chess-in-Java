@@ -23,22 +23,23 @@ public class Pawn extends GamePiece{
       if(colour.equals("black")){
         //Check if the square in front of the pawn is occupied.
 
-
         if(location.getY() + 1 < 8 && game.pieceAt(location.getX(), location.getY() + 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() + 1));
 
           //Pawns can move an extra square on their first move
-          if(!hasMoved && game.pieceAt(location.getX(), location.getY() + 2) == null){
+          if(location.getY() + 2 < 8 && !hasMoved && game.pieceAt(location.getX(), location.getY() + 2) == null){
             possibleLocations.add(new IntPair(location.getX(), location.getY() + 2));
           }
         }
       }
       else{ //for white pawns
+        
         if(location.getY() - 1 > 0 && game.pieceAt(location.getX(), location.getY() - 1) == null){
+
           possibleLocations.add(new IntPair(location.getX(), location.getY() - 1));
 
           //Pawns can move an extra square on their first move
-          if(!hasMoved && game.pieceAt(location.getX(), location.getY() - 2) == null){
+          if(location.getY() - 2 > 0 &&!hasMoved && game.pieceAt(location.getX(), location.getY() - 2) == null){
             possibleLocations.add(new IntPair(location.getX(), location.getY() - 2));
           }
         }

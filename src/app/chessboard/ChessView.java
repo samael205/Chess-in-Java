@@ -136,7 +136,7 @@ public class ChessView extends GridPane{
         //if the tile has a piece
         if (game.pieceAt(c, r) != null) {
             //if that piece belongs to them
-            if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
+            //if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
 
                 selectedPiece = game.pieceAt(c, r);
                 ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
@@ -147,7 +147,7 @@ public class ChessView extends GridPane{
                     //System.out.println(loc.getX());
                 }
 
-            }
+           // }
          }
      update();
 

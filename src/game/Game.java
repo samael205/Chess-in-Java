@@ -34,7 +34,7 @@ public class Game {
         whitePlayer = new Player("black");
 
         currentPlayer = whitePlayer;
-        //White pieces
+        //black pieces
         //Constructor: id, location, colour
         chessBoard[0][1] = new Pawn("A2", new IntPair(0, 1), "black", this);
         chessBoard[1][1] = new Pawn("B2", new IntPair(1, 1), "black", this);
@@ -55,24 +55,24 @@ public class Game {
         chessBoard[7][0] = new Rook("H1", new IntPair(7, 0), "black", this);
 
 
-        //black pieces
-        chessBoard[0][6] = new Pawn("A6", new IntPair(0, 6), "white", this);
-        chessBoard[1][6] = new Pawn("B6", new IntPair(1, 6), "white", this);
-        chessBoard[2][6] = new Pawn("C6", new IntPair(2, 6), "white", this);
-        chessBoard[3][6] = new Pawn("D6", new IntPair(3, 6), "white", this);
-        chessBoard[4][6] = new Pawn("E6", new IntPair(4, 6), "white", this);
-        chessBoard[5][6] = new Pawn("F6", new IntPair(5, 6), "white", this);
-        chessBoard[6][6] = new Pawn("G6", new IntPair(6, 6), "white", this);
-        chessBoard[7][6] = new Pawn("H6", new IntPair(7, 6), "white", this);
+        //white pieces
+        chessBoard[0][6] = new Pawn("A7", new IntPair(0, 6), "white", this);
+        chessBoard[1][6] = new Pawn("B7", new IntPair(1, 6), "white", this);
+        chessBoard[2][6] = new Pawn("C7", new IntPair(2, 6), "white", this);
+        chessBoard[3][6] = new Pawn("D7", new IntPair(3, 6), "white", this);
+        chessBoard[4][6] = new Pawn("E7", new IntPair(4, 6), "white", this);
+        chessBoard[5][6] = new Pawn("F7", new IntPair(5, 6), "white", this);
+        chessBoard[6][6] = new Pawn("G7", new IntPair(6, 6), "white", this);
+        chessBoard[7][6] = new Pawn("H7", new IntPair(7, 6), "white", this);
 
-        chessBoard[0][7] = new Rook("A7", new IntPair(0, 7), "white", this);
-        chessBoard[1][7] = new Knight("B7", new IntPair(1, 7), "white", this);
-        chessBoard[2][7] = new Bishop("C7", new IntPair(2, 7), "white", this);
-        chessBoard[3][7] = new Queen("D7", new IntPair(3,7), "white", this);
-        chessBoard[4][7] = new King("E7", new IntPair(4, 7), "white", this);
-        chessBoard[5][7] = new Bishop("F7", new IntPair(5, 7), "white", this);
-        chessBoard[6][7] = new Knight("G7", new IntPair(6, 7), "white", this);
-        chessBoard[7][7] = new Rook("H7", new IntPair(7, 7), "white", this);
+        chessBoard[0][7] = new Rook("A8", new IntPair(0, 7), "white", this);
+        chessBoard[1][7] = new Knight("B8", new IntPair(1, 7), "white", this);
+        chessBoard[2][7] = new Bishop("C8", new IntPair(2, 7), "white", this);
+        chessBoard[3][7] = new Queen("D8", new IntPair(3,7), "white", this);
+        chessBoard[4][7] = new King("E8", new IntPair(4, 7), "white", this);
+        chessBoard[5][7] = new Bishop("F8", new IntPair(5, 7), "white", this);
+        chessBoard[6][7] = new Knight("G8", new IntPair(6, 7), "white", this);
+        chessBoard[7][7] = new Rook("H8", new IntPair(7, 7), "white", this);
 
 
     }

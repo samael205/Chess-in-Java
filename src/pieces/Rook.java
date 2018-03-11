@@ -15,51 +15,77 @@ public class Rook extends GamePiece{
 
         ArrayList<IntPair> possibleLocations = new ArrayList<>();
         int i, j;
-        boolean collision;
 
         i = location.getX();
         j = location.getY();
 
         //Move right until collision
-        collision = false;
 
-        while(i < 8 && !collision){
+        while(i < 8 ){
           if(game.pieceAt(i, location.getY()) != null){
-             collision = true;
-          }
+            if(!game.pieceAt(i, location.getY()).getColour().equals(this.getColour())){
+                possibleLocations.add(new IntPair(i, location.getY()));
+            }
+            else if(game.pieceAt(i, location.getY()).getColour().equals(this.getColour()) && game.pieceAt(i, location.getY()) != this){
+                break;
+              }
           possibleLocations.add(new IntPair(i, location.getY()));
           i++;
+          }
         }
 
-        collision = false;
+        i = location.getX();
+        j = location.getY();
+
 
         //Move up until collision
-        while(j < 8 && !collision){
+        while(j < 8 ){
           if(game.pieceAt(location.getX(), j) != null){
-             collision = true;
+              if(!game.pieceAt(location.getX(), j).getColour().equals(this.getColour())){
+                  possibleLocations.add(new IntPair(location.getX(), j));
+              }
+              else if(game.pieceAt(location.getX(), j).getColour().equals(this.getColour()) && game.pieceAt(location.getX(), j) != this){
+                  break;
+              }
           }
+
           possibleLocations.add(new IntPair(location.getX(), j));
           j++;
         }
 
-        collision = false;
+
         i = location.getX();
+        j = location.getY();
+
         //Move left until collision
-        while(i > 0 && !collision){
+        while(i >= 0){
           if(game.pieceAt(i, location.getY()) != null){
-             collision = true;
+              if(!game.pieceAt(i, location.getY()).getColour().equals(this.getColour())){
+                  possibleLocations.add(new IntPair(i, location.getY()));
+              }
+              else if(game.pieceAt(i, location.getY()).getColour().equals(this.getColour()) && game.pieceAt(i, location.getY()) != this){
+                  break;
+              }
           }
+
           possibleLocations.add(new IntPair(i, location.getY()));
           i--;
         }
 
-        collision = false;
+        i = location.getX();
         j = location.getY();
+
         //Move down until collision
-        while(j > 0 && !collision){
+        while(j >= 0 ){
           if(game.pieceAt(location.getX(), j) != null){
-             collision = true;
+              if(!game.pieceAt(location.getX(), j).getColour().equals(this.getColour())){
+                  possibleLocations.add(new IntPair(location.getX(), j));
+              }
+              else if(game.pieceAt(location.getX(), j).getColour().equals(this.getColour()) && game.pieceAt(location.getX(), j) != this){
+                  break;
+              }
           }
+
           possibleLocations.add(new IntPair(location.getX(), j));
           j--;
         }

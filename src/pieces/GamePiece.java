@@ -37,13 +37,13 @@ public abstract class GamePiece {
     public void pieceIsTaken(){
         location = null;
         taken = true;
-        clearCurrentSpace();
     }
 
     public boolean moveTo(IntPair target){
+
         ArrayList<IntPair> possibleLocations = this.canMoveTo();
         for(IntPair loc : possibleLocations){
-            if(target == loc){
+            if(target.getX() == loc.getX() && target.getY() == loc.getY()){
                 //Check if there is an enemy piece there.
                 // canMoveTo will eliminate possible friendly pieces and game borders.
                 if (game.chessBoard[target.getX()][target.getY()] != null){

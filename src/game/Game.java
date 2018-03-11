@@ -55,7 +55,6 @@ public class Game {
         chessBoard[7][0] = new Rook("H1", new IntPair(7, 0), "black", this);
 
 
-        //white pieces
         chessBoard[0][6] = new Pawn("A7", new IntPair(0, 6), "white", this);
         chessBoard[1][6] = new Pawn("B7", new IntPair(1, 6), "white", this);
         chessBoard[2][6] = new Pawn("C7", new IntPair(2, 6), "white", this);
@@ -74,10 +73,9 @@ public class Game {
         chessBoard[6][7] = new Knight("G8", new IntPair(6, 7), "white", this);
         chessBoard[7][7] = new Rook("H8", new IntPair(7, 7), "white", this);
 
-
     }
 
-    //An enum would make this process much simpler
+
     public void changeTurn() {
         if (currentPlayer.getColour().equals("white")){
             currentPlayer = blackPlayer;
@@ -88,7 +86,6 @@ public class Game {
     }
 
     public GamePiece pieceAt(int x, int y){
-        // Returns the piece at (x,y), and if there is no piece there, return null.
         return chessBoard[x][y];
     }
     public void setPieceAt(int x, int y, GamePiece piece){

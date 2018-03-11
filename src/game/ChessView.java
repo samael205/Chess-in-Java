@@ -1,13 +1,10 @@
 package game;
 
-import game.Game;
 import javafx.event.Event;
 import javafx.scene.layout.*;
 import javafx.scene.control.Button;
 import pieces.*;
 import util.IntPair;
-
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 import static javafx.application.Platform.exit;
@@ -122,51 +119,69 @@ public class ChessView extends GridPane{
 
     private void handleMousePress(Event e) {
 
-
         int c = 0;
         int r = 0;
         OUTER:
         for (r = 0; r < 8; r++) {
             for (c = 0; c < 8; c++) {
                 if (e.getSource() == tiles[c][r]) {
-                    tiles[c][r].setStyle("-fx-border-color: red;");
                     break OUTER;
                 }
             }
         }
 
-
-        //If a piece is already selected, we attempt to move there
         if(pieceSelected){
+
+            if(game.pieceAt(c, r) != null){
+                if(game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())){
+                    clearSelection();
+                    return;
+                }
+            }
             if(selectedPiece.moveTo(new IntPair(c, r))){
                 game.changeTurn();
             }
-            pieceSelected = false;
-            selectedPiece = null;
-            update();
-            return;
+            clearSelection();
         }
-
-        //If no piece is selected, we select a piece
-
-        Button pressedTile = tiles[c][r];
-        //if the tile has a piece
-        if (game.pieceAt(c, r) != null) {
-            //if that piece belongs to them
-            if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
-
-                selectedPiece = game.pieceAt(c, r);
-                ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
-
-                for(IntPair loc : possibleLocations){
-                    tiles[loc.getX()][loc.getY()].setStyle("-fx-border-color: blue;");
+        else {
+            //if the tile has a piece
+            if (game.pieceAt(c, r) != null) {
+                //if that piece belongs to them
+                if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
+                    selectedPiece = game.pieceAt(c, r);
+                    pieceSelected = true;
+                    highlightMoves();
 
                 }
-
             }
-         }
+        }
      update();
 
+    }
+
+    private void clearSelection() {
+        pieceSelected = false;
+        selectedPiece = null;
+        clearHighlights();
+        update();
+    }
+
+    private void highlightMoves() {
+        ArrayList<IntPair> possibleLocations = new ArrayList<>(selectedPiece.canMoveTo());
+
+        for(IntPair loc : possibleLocations){
+            tiles[loc.getX()][loc.getY()].setStyle("-fx-border-color: blue;");
+
+        }
+    }
+
+    private void clearHighlights(){
+        for(int x = 0; x < 8; x++){
+            for(int y = 0; y < 8; y++) {
+                tiles[x][y].setStyle("-fx-border-color: none;");
+            }
+
+        }
     }
 
     private void setImage(int x, int y, String path){

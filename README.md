@@ -1,7 +1,5 @@
 # JavaChessProject
-Authors: Ethan Haliday, Brian LeBlanc, Virginia Saurer
-
-Project started: September 14, 2017
+Authors: Ethan Halliday, Brian LeBlanc
 
 # Info
 

@@ -1,4 +1,4 @@
-# JavaChessProject
+# Chess in Java
 Authors: Ethan Halliday, Brian LeBlanc
 
 # Info

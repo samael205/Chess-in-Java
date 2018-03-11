@@ -40,7 +40,7 @@ public abstract class GamePiece {
         clearCurrentSpace();
     }
 
-    public void moveTo(IntPair target){
+    public boolean moveTo(IntPair target){
         ArrayList<IntPair> possibleLocations = this.canMoveTo();
         for(IntPair loc : possibleLocations){
             if(target == loc){
@@ -56,8 +56,11 @@ public abstract class GamePiece {
                 //update chessboard with this piece at current location
                 game.setPieceAt(target.getX(), target.getY(), this);
                 hasMoved = true;
+                return true;
             }
         }
+
+        return false;
     }
 
     public abstract ArrayList<IntPair> canMoveTo();

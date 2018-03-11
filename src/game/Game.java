@@ -30,11 +30,11 @@ public class Game {
 
         chessBoard = new GamePiece[8][8];
 
-        blackPlayer = new Player("white");
-        whitePlayer = new Player("black");
+        blackPlayer = new Player("black");
+        whitePlayer = new Player("white");
 
         currentPlayer = whitePlayer;
-        //black pieces
+
         //Constructor: id, location, colour
         chessBoard[0][1] = new Pawn("A2", new IntPair(0, 1), "black", this);
         chessBoard[1][1] = new Pawn("B2", new IntPair(1, 1), "black", this);

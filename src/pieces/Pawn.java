@@ -33,7 +33,7 @@ public class Pawn extends GamePiece{
         }
       }
       else{ //for white pawns
-        
+
         if(location.getY() - 1 > 0 && game.pieceAt(location.getX(), location.getY() - 1) == null){
 
           possibleLocations.add(new IntPair(location.getX(), location.getY() - 1));

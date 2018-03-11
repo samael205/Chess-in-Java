@@ -1,5 +1,5 @@
 
-import app.chessboard.ChessView;
+import game.ChessView;
 import game.Game;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -23,8 +23,22 @@ public class App extends Application {
         aView.update();
 
 
+        /*
+        while(true){
+            if(game.getCurrentPlayer().hasMovedAPiece()) {
+                game.getCurrentPlayer().setHasMovedAPiece(false);
+                game.changeTurn();
+            }
+            aView.update();
+            if(game.getCurrentPlayer().isInCheckmate()){
+                break;
+            }
+        }
+        */
     }
+
     public static void main(String[] args){
         launch(args);
     }
 }
+

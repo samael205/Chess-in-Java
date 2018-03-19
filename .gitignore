@@ -1,3 +1,7 @@
 
 *.xml
 *.iml
+*.class
+*.png
+out/production/Chess-in-Java/resources/images/Image License.txt
+out/production/Chess-in-Java/resources/style.css

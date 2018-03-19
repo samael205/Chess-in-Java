@@ -22,16 +22,14 @@ public class Rook extends GamePiece{
         //Move right until collision
 
         while(i < 8 ){
-          if(game.pieceAt(i, location.getY()) != null){
+          if(game.pieceAt(i, location.getY()) != null && game.pieceAt(i, location.getY()) != this){
             if(!game.pieceAt(i, location.getY()).getColour().equals(this.getColour())){
                 possibleLocations.add(new IntPair(i, location.getY()));
             }
-            else if(game.pieceAt(i, location.getY()).getColour().equals(this.getColour()) && game.pieceAt(i, location.getY()) != this){
-                break;
-              }
+            break;
+          }
           possibleLocations.add(new IntPair(i, location.getY()));
           i++;
-          }
         }
 
         i = location.getX();
@@ -40,13 +38,11 @@ public class Rook extends GamePiece{
 
         //Move up until collision
         while(j < 8 ){
-          if(game.pieceAt(location.getX(), j) != null){
+          if(game.pieceAt(location.getX(), j) != null && game.pieceAt(location.getX(), j) != this){
               if(!game.pieceAt(location.getX(), j).getColour().equals(this.getColour())){
                   possibleLocations.add(new IntPair(location.getX(), j));
               }
-              else if(game.pieceAt(location.getX(), j).getColour().equals(this.getColour()) && game.pieceAt(location.getX(), j) != this){
-                  break;
-              }
+              break;
           }
 
           possibleLocations.add(new IntPair(location.getX(), j));
@@ -59,13 +55,11 @@ public class Rook extends GamePiece{
 
         //Move left until collision
         while(i >= 0){
-          if(game.pieceAt(i, location.getY()) != null){
+          if(game.pieceAt(i, location.getY()) != null && game.pieceAt(i, location.getY()) != this){
               if(!game.pieceAt(i, location.getY()).getColour().equals(this.getColour())){
                   possibleLocations.add(new IntPair(i, location.getY()));
               }
-              else if(game.pieceAt(i, location.getY()).getColour().equals(this.getColour()) && game.pieceAt(i, location.getY()) != this){
-                  break;
-              }
+              break;
           }
 
           possibleLocations.add(new IntPair(i, location.getY()));
@@ -77,15 +71,12 @@ public class Rook extends GamePiece{
 
         //Move down until collision
         while(j >= 0 ){
-          if(game.pieceAt(location.getX(), j) != null){
+          if(game.pieceAt(location.getX(), j) != null && game.pieceAt(location.getX(), j) != this){
               if(!game.pieceAt(location.getX(), j).getColour().equals(this.getColour())){
                   possibleLocations.add(new IntPair(location.getX(), j));
               }
-              else if(game.pieceAt(location.getX(), j).getColour().equals(this.getColour()) && game.pieceAt(location.getX(), j) != this){
-                  break;
-              }
+              break;
           }
-
           possibleLocations.add(new IntPair(location.getX(), j));
           j--;
         }

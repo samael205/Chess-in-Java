@@ -11,6 +11,14 @@ Region{
     -fx-background-color: rgb(209,139,71);
 }
 
-#redTile{
-    -fx-background-color: rgb(176, 0, 18);
+#redBorder{
+    border: solid 3px red;
+}
+
+#blueBorder {
+    border: solid 3px blue;
+}
+
+#noBorder {
+    border: none;
 }

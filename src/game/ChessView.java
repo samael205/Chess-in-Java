@@ -43,36 +43,36 @@ public class ChessView extends GridPane{
         game = g;
 
         boolean temp = true;
-        for (int r = 0; r < 8; r++) {
-            for (int c = 0; c < 8; c++) {
-                tiles[c][r] = new Button();
-                tiles[c][r].setPrefSize(100, 100);
+        for (int row = 0; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                tiles[column][row] = new Button();
+                tiles[column][row].setPrefSize(100, 100);
                 /*
                 Creating the checkerboard pattern for the tiles by adding CSS ids.
                 This is so the tiles can easily be controlled by the stylesheet.
                 See 'App.java' for info on CSS styling.
                 */
                 if(temp){
-                    tiles[c][r].setId("lightTile");
+                    tiles[column][row].setId("lightTile");
                 }else{
-                    tiles[c][r].setId("darkTile");
+                    tiles[column][row].setId("darkTile");
                 }
                 temp = !temp;
 
                 /*
                 Adding the event handler to each button using a lambda expression, equivalent to:
 
-                tiles[r][c].setOnMousePressed(new EventHandler<MouseEvent>() {
+                tiles[r][column].setOnMousePressed(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
                         handleMousePress(event);
                     }
                 });
                 */
-                tiles[c][r].setOnMousePressed(e -> handleMousePress(e));
+                tiles[column][row].setOnMousePressed(e -> handleMousePress(e));
 
                 // Adding the tile to the board
-                board.add(tiles[c][r], c, r);
+                board.add(tiles[column][row], column, row);
             }
             temp = !temp;
         }
@@ -187,7 +187,7 @@ public class ChessView extends GridPane{
     private void setImage(int x, int y, String path){
         // Sets the current background image of the passed tile to the one at the passed path, and re-sizes it
         //tiles[x][y].getStyle() +
-        tiles[x][y].setStyle("-fx-background-image: url(" + path + ");"
+        tiles[x][y].setStyle("-fx-background-image: url(" + path + ") no-repeat;"
                 + "-fx-background-size: " + (int)tiles[x][y].getWidth() + ", " + (int)tiles[x][y].getHeight());
     }
 }

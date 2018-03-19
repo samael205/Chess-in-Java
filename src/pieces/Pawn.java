@@ -22,7 +22,23 @@ public class Pawn extends GamePiece{
 
       if(colour.equals("black")){
         //Check if the square in front of the pawn is occupied.
-
+          // logic for pawns taking pieces
+        if(location.getY() + 1 < 8 && location.getX() - 1 >= 0) {
+          GamePiece piece = game.pieceAt(location.getX() - 1, location.getY() + 1);
+          if(piece != null) {
+            if (!piece.colour.equals(this.colour)) {
+              possibleLocations.add(new IntPair(location.getX() - 1, location.getY() + 1));
+            }
+          }
+        }
+        if(location.getY() + 1 < 8 && location.getX() + 1 < 8){
+          GamePiece piece = game.pieceAt(location.getX() + 1, location.getY() + 1);
+          if(piece != null) {
+            if (!piece.colour.equals(this.colour)) {
+              possibleLocations.add(new IntPair(location.getX() + 1, location.getY() + 1));
+            }
+          }
+        }
         if(location.getY() + 1 < 8 && game.pieceAt(location.getX(), location.getY() + 1) == null){
           possibleLocations.add(new IntPair(location.getX(), location.getY() + 1));
 
@@ -34,6 +50,22 @@ public class Pawn extends GamePiece{
       }
       else{ //for white pawns
 
+        if(location.getY() - 1 >= 0 && location.getX() - 1 >= 0) {
+          GamePiece piece = game.pieceAt(location.getX() - 1, location.getY() - 1);
+          if(piece != null) {
+            if (!piece.colour.equals(this.colour)) {
+              possibleLocations.add(new IntPair(location.getX() - 1, location.getY() - 1));
+            }
+          }
+        }
+        if(location.getY() - 1 >= 0 && location.getX() + 1 < 8){
+          GamePiece piece = game.pieceAt(location.getX() + 1, location.getY() - 1);
+          if(piece != null) {
+            if (!piece.colour.equals(this.colour)) {
+              possibleLocations.add(new IntPair(location.getX() + 1, location.getY() - 1));
+            }
+          }
+        }
         if(location.getY() - 1 > 0 && game.pieceAt(location.getX(), location.getY() - 1) == null){
 
           possibleLocations.add(new IntPair(location.getX(), location.getY() - 1));

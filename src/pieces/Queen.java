@@ -75,6 +75,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(location.getX(), j) != null){
           if(!game.pieceAt(location.getX(), j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(location.getX(), j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;

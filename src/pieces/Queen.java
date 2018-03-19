@@ -23,6 +23,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, location.getY()) != null){
           if(!game.pieceAt(i, location.getY()).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, location.getY()));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -40,6 +41,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(location.getX(), j) != null){
           if(!game.pieceAt(location.getX(), j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(location.getX(), j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -56,6 +58,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, location.getY()) != null){
           if(!game.pieceAt(i, location.getY()).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, location.getY()));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -89,6 +92,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, j) != null){
           if(!game.pieceAt(i, j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -106,6 +110,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, j) != null){
           if(!game.pieceAt(i, j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -123,6 +128,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, j) != null){
           if(!game.pieceAt(i, j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;
@@ -140,6 +146,7 @@ public class Queen extends GamePiece{
         if(game.pieceAt(i, j) != null){
           if(!game.pieceAt(i, j).getColour().equals(this.colour)) {
             possibleLocations.add(new IntPair(i, j));
+            break;
           }
           else if(game.pieceAt(i, j).getColour().equals(this.colour) && game.pieceAt(i, j) != this){
             break;

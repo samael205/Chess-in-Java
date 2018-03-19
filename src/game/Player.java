@@ -25,4 +25,7 @@ public class Player {
 
     public void setHasMovedAPiece(boolean moved){hasMovedAPiece = moved;}
 
+    public String toString(){
+        return colour;
+    }
 }

@@ -116,6 +116,18 @@ public class ChessView extends GridPane{
             }
             if(selectedPiece.moveTo(new IntPair(c, r))){
                 game.changeTurn();
+                GamePiece king = null;
+                Player player = game.getCurrentPlayer();
+                OUTER:
+                for (r = 0; r < 8; r++) {
+                    for (c = 0; c < 8; c++) {
+                        if (game.pieceAt(c, r) instanceof King && game.pieceAt(c, r).getColour().equals(player.getColour())) {
+                            king = game.pieceAt(c, r);
+                            break OUTER;
+                        }
+                    }
+                }
+                checkForCheck(king);
             }
             clearSelection();
         }
@@ -124,6 +136,10 @@ public class ChessView extends GridPane{
             if (game.pieceAt(c, r) != null) {
                 //if that piece belongs to them
                 if (game.pieceAt(c, r).getColour().equals(game.getCurrentPlayer().getColour())) {
+                    if(game.pieceAt(c, r) instanceof King){
+                        GamePiece king = game.pieceAt(c, r);
+                        checkForCheck(king);
+                    }
                     selectedPiece = game.pieceAt(c, r);
                     pieceSelected = true;
                     highlightMoves();
@@ -135,6 +151,20 @@ public class ChessView extends GridPane{
 
     }
 
+    private void checkForCheck(GamePiece king){
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                if(game.pieceAt(i, j) != null){
+                    for(IntPair loc: game.pieceAt(i, j).canMoveTo()){
+                        if(game.pieceAt(loc.getX(), loc.getY()) == king){
+                            game.getCurrentPlayer().setCheck(true);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
     private void clearSelection() {
         pieceSelected = false;
         selectedPiece = null;

@@ -22,19 +22,6 @@ public class App extends Application {
         // primaryStage must be shown before update so that the style can load
         aView.update();
 
-
-        /*
-        while(true){
-            if(game.getCurrentPlayer().hasMovedAPiece()) {
-                game.getCurrentPlayer().setHasMovedAPiece(false);
-                game.changeTurn();
-            }
-            aView.update();
-            if(game.getCurrentPlayer().isInCheckmate()){
-                break;
-            }
-        }
-        */
     }
 
     public static void main(String[] args){

@@ -11,21 +11,7 @@ import static javafx.application.Platform.exit;
 
 
 public class ChessView extends GridPane{
-    /*
-    This is the main class for the view of the game.
-    Currently only has one Node element, 'board', but will have more elements such as:
-     -current player
-     -buttons for game options
-     -turn counter(maybe)
-     -each players time(maybe)
-     -taken piece list(maybe)
 
-    'board' holds the tiles in a GridPane. Treating the board as one element will help for formatting
-    when we add more elements to the view.
-
-    I chose to use the Button class over the Button class because Buttons have no built-in styling,
-    while Buttons have a lot. This will allows us to get the tiles to look exactly how we want.
-     */
     private GridPane board;
     private Button[][] tiles;
     private Game game;
@@ -46,7 +32,7 @@ public class ChessView extends GridPane{
         for (int row = 0; row < 8; row++) {
             for (int column = 0; column < 8; column++) {
                 tiles[column][row] = new Button();
-                tiles[column][row].setPrefSize(100, 100);
+                tiles[column][row].setPrefSize(80, 80);
                 /*
                 Creating the checkerboard pattern for the tiles by adding CSS ids.
                 This is so the tiles can easily be controlled by the stylesheet.
@@ -59,16 +45,6 @@ public class ChessView extends GridPane{
                 }
                 temp = !temp;
 
-                /*
-                Adding the event handler to each button using a lambda expression, equivalent to:
-
-                tiles[r][column].setOnMousePressed(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        handleMousePress(event);
-                    }
-                });
-                */
                 tiles[column][row].setOnMousePressed(e -> handleMousePress(e));
 
                 // Adding the tile to the board
